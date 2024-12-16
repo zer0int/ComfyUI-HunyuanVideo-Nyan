@@ -1,5 +1,7 @@
 # ComfyUI-HunyuanVideo-Nyan
-Text Encoders finally matter 🤖🎥 - scale CLIP &amp; LLM influence! + a Nerdy Transformer Shuffle node
+
+### Text Encoders finally matter 🤖🎥 - scale CLIP &amp; LLM influence! 
++ plus, a Nerdy Transformer Shuffle node
 ----
 - The CLIP model doesn't seem to matter much? True for default Hunyuan Video, False with this node! ✨
 - Simply put the `ComfyUI...` folder from this repo in `ComfyUI/custom_nodes`
