@@ -3,6 +3,10 @@
 ### Text Encoders finally matter 🤖🎥 - scale CLIP &amp; LLM influence! 
 + plus, a Nerdy Transformer Shuffle node
 ----
+- To clarify, only put this folder into `ComfyUI/custom_nodes`; if you cloned the entire repo, you'll need to move it. `only this!` should be in `ComfyUI/custom_nodes`; you should have an `__init__.py` in your `ComfyUI/custom_nodes/ComfyUI-HunyuanVideo-Nyan` folder. If you see a README.md, that's wrong.
+
+![clarify](https://github.com/user-attachments/assets/a8d9a977-eb31-4bc5-b187-18d96e5bfe6c)
+----
 - The CLIP model doesn't seem to matter much? True for default Hunyuan Video, False with this node! ✨
 - Simply put the `ComfyUI...` folder from this repo in `ComfyUI/custom_nodes`
 - See example workflow; it's really easy to use, though. Replaces the loader node.
