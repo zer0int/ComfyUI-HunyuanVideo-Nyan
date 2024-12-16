@@ -22,8 +22,13 @@
 
 - Q: What does it do, this `Factor` for scaling CLIP & LLM? 🤔 
 - A: Here are some examples. Including a 'do NOT set BOTH the CLIP and LLM factors >1' example.
+- Prompt: `high quality nature video of a red panda balancing on a bamboo stick while a bird lands on the panda's head, there's a waterfall in the background`
+- SAE: Bird at least flies (though takes off), better feet on panda (vs. OpenAI)
 
 https://github.com/user-attachments/assets/ff234efa-af12-4abf-9a1d-1563032d789e
+
+- These are all my CLIP models from [huggingface.co/zer0int](https://huggingface.co/zer0int); SAE is best.
+- See details on legs; blurriness; coherence of small details.
 
 https://github.com/user-attachments/assets/a50d7b71-7325-4dfa-948a-3eb237a4d425
 
