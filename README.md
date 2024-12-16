@@ -8,7 +8,9 @@
 - See example workflow; it's really easy to use, though. Replaces the loader node.
 - Recommended CLIP [huggingface.co/zer0int/CLIP-SAE-ViT-L-14](https://huggingface.co/zer0int/CLIP-SAE-ViT-L-14)
 - Takes 248 tokens, a bit unpredictable: [huggingface.co/zer0int/LongCLIP-GmP-ViT-L-14](https://huggingface.co/zer0int/LongCLIP-GmP-ViT-L-14)
+
 ![use-node](https://github.com/user-attachments/assets/59928c01-3118-4be4-b31c-037b32073f26)
+
 - Requires [kijai/ComfyUI-HunyuanVideoWrapper](https://github.com/kijai/ComfyUI-HunyuanVideoWrapper)
 - ⚠️ If something breaks because WIP: Temporarily fall back to [my fork](https://github.com/zer0int/ComfyUI-HunyuanVideoWrapper) for compatibility
 - Uses HunyuanVideoWrapper -> loader node implementation. All credits to the original author!
