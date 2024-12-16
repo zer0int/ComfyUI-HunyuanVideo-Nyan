@@ -1,0 +1,677 @@
+{
+  "last_node_id": 49,
+  "last_link_id": 57,
+  "nodes": [
+    {
+      "id": 3,
+      "type": "HyVideoSampler",
+      "pos": [
+        293.32049560546875,
+        -144.79454040527344
+      ],
+      "size": [
+        315,
+        334
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "HYVIDEOMODEL",
+          "link": 55
+        },
+        {
+          "name": "hyvid_embeds",
+          "type": "HYVIDEMBEDS",
+          "link": 36
+        },
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "stg_args",
+          "type": "STGARGS",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "links": [
+            4
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "HyVideoSampler"
+      },
+      "widgets_values": [
+        512,
+        320,
+        85,
+        30,
+        6,
+        9,
+        6,
+        "fixed",
+        1,
+        1
+      ]
+    },
+    {
+      "id": 5,
+      "type": "HyVideoDecode",
+      "pos": [
+        755.6831665039062,
+        -277.65386962890625
+      ],
+      "size": [
+        345.4285888671875,
+        150
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 6
+        },
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            42
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "HyVideoDecode"
+      },
+      "widgets_values": [
+        true,
+        64,
+        256,
+        true
+      ]
+    },
+    {
+      "id": 7,
+      "type": "HyVideoVAELoader",
+      "pos": [
+        295.96466064453125,
+        -324.859375
+      ],
+      "size": [
+        379.166748046875,
+        82
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "compile_args",
+          "type": "COMPILEARGS",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "vae",
+          "type": "VAE",
+          "links": [
+            6
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "HyVideoVAELoader"
+      },
+      "widgets_values": [
+        "hyvid\\hunyuan_video_vae_bf16.safetensors",
+        "bf16"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "DownloadAndLoadHyVideoTextEncoder",
+      "pos": [
+        -412.0915832519531,
+        370.6401062011719
+      ],
+      "size": [
+        441,
+        178
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "hyvid_text_encoder",
+          "type": "HYVIDTEXTENCODER",
+          "links": [
+            35
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DownloadAndLoadHyVideoTextEncoder"
+      },
+      "widgets_values": [
+        "Kijai/llava-llama-3-8b-text-encoder-tokenizer",
+        "disabled",
+        "fp16",
+        false,
+        2,
+        "disabled"
+      ]
+    },
+    {
+      "id": 30,
+      "type": "HyVideoTextEncode",
+      "pos": [
+        154.71517944335938,
+        305.747802734375
+      ],
+      "size": [
+        472.2763977050781,
+        329.08721923828125
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_encoders",
+          "type": "HYVIDTEXTENCODER",
+          "link": 35
+        },
+        {
+          "name": "custom_prompt_template",
+          "type": "PROMPT_TEMPLATE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "clip_l",
+          "type": "CLIP",
+          "link": 57,
+          "shape": 7
+        },
+        {
+          "name": "hyvid_cfg",
+          "type": "HYVID_CFG",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hyvid_embeds",
+          "type": "HYVIDEMBEDS",
+          "links": [
+            36
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "HyVideoTextEncode"
+      },
+      "widgets_values": [
+        "high quality nature video of a red panda balancing on a bamboo stick while a bird lands on the panda's head, there's a waterfall in the background",
+        "bad quality video",
+        "video"
+      ]
+    },
+    {
+      "id": 34,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        673.133544921875,
+        -37.19999694824219
+      ],
+      "size": [
+        580.7774658203125,
+        334
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 42
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "HunyuanVideo",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "HunyuanVideo_00009.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 24,
+            "workflow": "HunyuanVideo_00009.png",
+            "fullpath": "C:\\Users\\zer0int\\ComfyUI\\output\\HunyuanVideo_00009.mp4"
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 41,
+      "type": "CLIPLoader",
+      "pos": [
+        -411.6324768066406,
+        609.8427734375
+      ],
+      "size": [
+        485.7987976074219,
+        91.18279266357422
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            57
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "ViT-L-14-GmP-SAE-TE-only.safetensors",
+        "stable_diffusion"
+      ],
+      "color": "#47551f",
+      "bgcolor": "#33410b"
+    },
+    {
+      "id": 44,
+      "type": "HunyuanNyan",
+      "pos": [
+        -549.5863037109375,
+        -397.2301940917969
+      ],
+      "size": [
+        401.928955078125,
+        698
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "compile_args",
+          "type": "COMPILEARGS",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "block_swap_args",
+          "type": "BLOCKSWAPARGS",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "lora",
+          "type": "HYVIDLORA",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "HYVIDEOMODEL",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "HunyuanNyan"
+      },
+      "widgets_values": [
+        "True",
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        "5,6,7,8",
+        "None",
+        "9,10,11,15",
+        "None",
+        "16,17,18,19",
+        "None",
+        "5,6,7",
+        "None",
+        "4,5,6,7",
+        "None",
+        "23,25,28,30,32",
+        "None",
+        "15,16,17,18",
+        "None",
+        "5,6,7",
+        "hyvideo\\hunyuan_video_720_cfgdistill_fp8_e4m3fn.safetensors",
+        "bf16",
+        "fp8_e4m3fn",
+        "main_device",
+        "sageattn_varlen"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 45,
+      "type": "HunyuanNyanCLIP",
+      "pos": [
+        -60.99720764160156,
+        -197.6995391845703
+      ],
+      "size": [
+        310.1705322265625,
+        316.7596435546875
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "compile_args",
+          "type": "COMPILEARGS",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "block_swap_args",
+          "type": "BLOCKSWAPARGS",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "lora",
+          "type": "HYVIDLORA",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "HYVIDEOMODEL",
+          "links": [
+            55
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "HunyuanNyanCLIP"
+      },
+      "widgets_values": [
+        "True",
+        "Factor",
+        1.5,
+        "Factor",
+        0.9,
+        "hyvideo\\hunyuan_video_720_cfgdistill_fp8_e4m3fn.safetensors",
+        "bf16",
+        "fp8_e4m3fn",
+        "main_device",
+        "sageattn_varlen"
+      ],
+      "color": "#2a5f69",
+      "bgcolor": "#164b55"
+    },
+    {
+      "id": 46,
+      "type": "Note",
+      "pos": [
+        -553.1201171875,
+        -543.7881469726562
+      ],
+      "size": [
+        398.811767578125,
+        77.9039077758789
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Nyan-Confusion!!",
+      "properties": {},
+      "widgets_values": [
+        "Do more with the transformer and shuffle or skip layers!\nYou don't need this for the \"better guidance and look\".\nClick on it and delete it if you think it's confusing. =)\nOtherwise, use just like the mini-node version."
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 47,
+      "type": "Note",
+      "pos": [
+        -53.828739166259766,
+        -370.45159912109375
+      ],
+      "size": [
+        298.38311767578125,
+        106.62703704833984
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Usage - Nyan-CLIP",
+      "properties": {},
+      "widgets_values": [
+        "Set None -> Factor to enable.  Recommended:\n\nCLIP 1.1 - 1.5    LLM 0.7 - 1.1\n\nCan be worth a shot:            Both > 1.0:\nLLM 0.5, CLIP 1.5+              Glitch time!"
+      ],
+      "color": "#7b2874",
+      "bgcolor": "#671460"
+    },
+    {
+      "id": 48,
+      "type": "Note",
+      "pos": [
+        -407.4267883300781,
+        745.9741821289062
+      ],
+      "size": [
+        476.9533386230469,
+        146.51510620117188
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Which CLIP to use?",
+      "properties": {},
+      "widgets_values": [
+        "Highly recommended:\n\nhttps://huggingface.co/zer0int/CLIP-SAE-ViT-L-14\n\n\nFun but a bit unpredictable:\n\nhttps://huggingface.co/zer0int/LongCLIP-GmP-ViT-L-14"
+      ],
+      "color": "#516d1c",
+      "bgcolor": "#3d5908"
+    },
+    {
+      "id": 49,
+      "type": "Note",
+      "pos": [
+        -56.88846206665039,
+        161.618408203125
+      ],
+      "size": [
+        303.16436767578125,
+        58
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "load_from_file",
+      "properties": {},
+      "widgets_values": [
+        "load_from_file False -> creates deepcopy instead.\nWarning, *may* require (total) >64 GB RAM."
+      ],
+      "color": "#942828",
+      "bgcolor": "#801414"
+    }
+  ],
+  "links": [
+    [
+      4,
+      3,
+      0,
+      5,
+      1,
+      "LATENT"
+    ],
+    [
+      6,
+      7,
+      0,
+      5,
+      0,
+      "VAE"
+    ],
+    [
+      35,
+      16,
+      0,
+      30,
+      0,
+      "HYVIDTEXTENCODER"
+    ],
+    [
+      36,
+      30,
+      0,
+      3,
+      1,
+      "HYVIDEMBEDS"
+    ],
+    [
+      42,
+      5,
+      0,
+      34,
+      0,
+      "IMAGE"
+    ],
+    [
+      55,
+      45,
+      0,
+      3,
+      0,
+      "HYVIDEOMODEL"
+    ],
+    [
+      57,
+      41,
+      0,
+      30,
+      2,
+      "CLIP"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "",
+      "bounding": [
+        -93.43040466308594,
+        -106.95518493652344,
+        140.91819763183594,
+        91.01922607421875
+      ],
+      "color": "#8a007a",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.3310000000000008,
+      "offset": [
+        894.7185991214733,
+        748.2312075175805
+      ]
+    }
+  },
+  "version": 0.4
+}
