@@ -40,6 +40,29 @@ import folder_paths
 folder_paths.add_model_folder_path("hyvid_embeds", os.path.join(folder_paths.get_output_directory(), "hyvid_embeds"))
 script_directory = os.path.dirname(os.path.abspath(__file__))
 
+def filter_state_dict_by_blocks(state_dict, blocks_mapping):
+    filtered_dict = {}
+
+    for key in state_dict:
+        if 'double_blocks.' in key or 'single_blocks.' in key:
+            block_pattern = key.split('diffusion_model.')[1].split('.', 2)[0:2]
+            block_key = f'{block_pattern[0]}.{block_pattern[1]}.'
+
+            if block_key in blocks_mapping:
+                filtered_dict[key] = state_dict[key]
+
+    return filtered_dict
+
+def standardize_lora_key_format(lora_sd):
+    new_sd = {}
+    for k, v in lora_sd.items():
+        # Diffusers format
+        if k.startswith('transformer.'):
+            k = k.replace('transformer.', 'diffusion_model.')
+        new_sd[k] = v
+    return new_sd
+
+
 class HyVideoModel(comfy.model_base.BaseModel):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
