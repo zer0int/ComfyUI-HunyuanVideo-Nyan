@@ -3,6 +3,10 @@
 ### Text Encoders finally matter 🤖🎥 - scale CLIP &amp; LLM influence! 
 + plus, a Nerdy Transformer Shuffle node
 ----
+## Changes 19/DEC/2024:
+- New (best) SAE-informed Long-CLIP model with 90% ImageNet/ObjectNet accuracy.
+- Code is here, model is at my HF 🤗: [https://huggingface.co/zer0int/LongCLIP-SAE-ViT-L-14](https://huggingface.co/zer0int/LongCLIP-SAE-ViT-L-14)
+----
 - To clarify, only put this folder into `ComfyUI/custom_nodes`; if you cloned the entire repo, you'll need to move it. `only this!` should be in `ComfyUI/custom_nodes`; you should have an `__init__.py` in your `ComfyUI/custom_nodes/ComfyUI-HunyuanVideo-Nyan` folder. If you see a README.md, that's wrong.
 
 ![clarify](https://github.com/user-attachments/assets/a8d9a977-eb31-4bc5-b187-18d96e5bfe6c)
@@ -11,7 +15,7 @@
 - Simply put the `ComfyUI...` folder from this repo in `ComfyUI/custom_nodes`
 - See example workflow; it's really easy to use, though. Replaces the loader node.
 - Recommended CLIP [huggingface.co/zer0int/CLIP-SAE-ViT-L-14](https://huggingface.co/zer0int/CLIP-SAE-ViT-L-14)
-- Takes 248 tokens, a bit unpredictable: [huggingface.co/zer0int/LongCLIP-GmP-ViT-L-14](https://huggingface.co/zer0int/LongCLIP-GmP-ViT-L-14)
+- Takes 248 tokens, 🆕 @ 19/DEC/24 🤗: [https://huggingface.co/zer0int/LongCLIP-SAE-ViT-L-14](https://huggingface.co/zer0int/LongCLIP-SAE-ViT-L-14)
 
 ![use-node](https://github.com/user-attachments/assets/59928c01-3118-4be4-b31c-037b32073f26)
 
@@ -35,6 +39,21 @@ https://github.com/user-attachments/assets/ff234efa-af12-4abf-9a1d-1563032d789e
 - See details on legs; blurriness; coherence of small details.
 
 https://github.com/user-attachments/assets/a50d7b71-7325-4dfa-948a-3eb237a4d425
+
+----
+🆕 Long-CLIP @ 19/DEC/24:
+The original CLIP model has 77 tokens max input - but only ~20 tokens effective length. See the [original Long-CLIP paper](https://arxiv.org/abs/2403.15378) for details. HunyuanVideo demo:
+- 69 tokens, normal scene:
+1. Lens: 16mm. Aperture: f/2.8. Color Grading: Blue-green monochrome. Lighting: Low-key with backlit silhouettes. Background: Gothic cathedral at night, stained glass windows breaking. Camera angle: Over the shoulder of a ninja, tracking her mid-air leap as she lands on a rooftop.
+- 52 tokens, OOD (Out-of-Distribution) scene: Superior handling for consistency and prompt-following despite OOD concept.
+2. In this surreal nightmare documentary, a sizable spider with a human face is peacefully savoring her breakfast at a diner. The spider has a spider body, but a lady's face on the front, and regular human hands at the end of the spider legs.
+
+
+
+https://github.com/user-attachments/assets/d424e089-1243-4510-9561-61c8ad5ea5b0
+
+
+----
 
 - Q: And what does this confusing, gigantic node for nerds do? 🤓 
 - A: You can glitch the transformer (video model) by shuffling or skipping MLP and Attention layers:
