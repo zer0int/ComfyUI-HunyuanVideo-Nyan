@@ -3,6 +3,11 @@
 ### Text Encoders finally matter 🤖🎥 - scale CLIP &amp; LLM influence! 
 + plus, a Nerdy Transformer Shuffle node
 ----
+## Changes 🎄 24/DEC/2024:
+- Fix node for compatibility with [kijai/ComfyUI-HunyuanVideoWrapper](https://github.com/kijai/ComfyUI-HunyuanVideoWrapper)
+- Now with Timestamp to log compatibility (use same as previous version, see below)
+- Include updated Image-To-Video + Text-To-Video workflows
+----
 ## Changes 19/DEC/2024:
 - New (best) SAE-informed Long-CLIP model with 90% ImageNet/ObjectNet accuracy.
 - Code is here, model is at my HF 🤗: [https://huggingface.co/zer0int/LongCLIP-SAE-ViT-L-14](https://huggingface.co/zer0int/LongCLIP-SAE-ViT-L-14)
