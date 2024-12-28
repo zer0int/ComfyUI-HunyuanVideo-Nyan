@@ -9,6 +9,7 @@
 - [https://github.com/zer0int/ComfyUI-LLama3-Layer-Shuffle-Prompting](https://github.com/zer0int/ComfyUI-LLama3-Layer-Shuffle-Prompting)
 - Shuffle the AI's attention & cause a confusion! Embrace the completely unpredictable!
 - Workflow included in the 24-DEC workflows folder. Just install the above node first.
+- Tip: Attn Layer 6,7,8 shuffle = confused. 5,6,7 = very confused. MLP shuffle = Garbled GPT-2 madness.
   
 ![attn-shuffle-bar](https://github.com/user-attachments/assets/2529c184-781f-40ee-957b-badf6a1dc995)
 
