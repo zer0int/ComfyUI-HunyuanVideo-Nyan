@@ -3,6 +3,18 @@
 ### Text Encoders finally matter 🤖🎥 - scale CLIP &amp; LLM influence! 
 + plus, a Nerdy Transformer Shuffle node
 ----
+## Changes 28/DEC/24:
+
+- There are many ways to use an LLM for prompting, but just one (afaik) that lets you mess with the LLM's attention:
+- [https://github.com/zer0int/ComfyUI-LLama3-Layer-Shuffle-Prompting](https://github.com/zer0int/ComfyUI-LLama3-Layer-Shuffle-Prompting)
+- Shuffle the AI's attention & cause a confusion! Embrace the completely unpredictable!
+- Workflow included in the 24-DEC workflows folder. Just install the above node first.
+
+
+https://github.com/user-attachments/assets/38a9af77-de4c-4838-a4fc-9f6b0c0ce5b2
+
+
+----
 ## Changes 🎄 24/DEC/2024:
 - Fix node for compatibility with [kijai/ComfyUI-HunyuanVideoWrapper](https://github.com/kijai/ComfyUI-HunyuanVideoWrapper)
 - Now with Timestamp to log compatibility (use same as previous version, see below)
