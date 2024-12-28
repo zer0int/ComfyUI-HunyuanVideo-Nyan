@@ -9,9 +9,11 @@
 - [https://github.com/zer0int/ComfyUI-LLama3-Layer-Shuffle-Prompting](https://github.com/zer0int/ComfyUI-LLama3-Layer-Shuffle-Prompting)
 - Shuffle the AI's attention & cause a confusion! Embrace the completely unpredictable!
 - Workflow included in the 24-DEC workflows folder. Just install the above node first.
+  
+![attn-shuffle-bar](https://github.com/user-attachments/assets/2529c184-781f-40ee-957b-badf6a1dc995)
 
 
-https://github.com/user-attachments/assets/38a9af77-de4c-4838-a4fc-9f6b0c0ce5b2
+https://github.com/user-attachments/assets/cc1819b3-3993-4fa6-b15d-85612cff1977
 
 
 ----
