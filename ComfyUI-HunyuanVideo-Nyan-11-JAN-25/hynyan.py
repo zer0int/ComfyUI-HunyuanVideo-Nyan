@@ -132,7 +132,7 @@ class HyVideoModelConfig:
         self.unet_config = {}
         self.unet_extra_config = {}
         self.latent_format = comfy.latent_formats.HunyuanVideo
-        self.latent_format = comfy.latent_formats.LatentFormat()
+        #self.latent_format = comfy.latent_formats.LatentFormat()
         self.latent_format.latent_channels = 16
         self.manual_cast_dtype = dtype
         self.sampling_settings = {"multiplier": 1.0}
